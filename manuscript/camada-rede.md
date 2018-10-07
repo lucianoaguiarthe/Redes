@@ -86,7 +86,7 @@ Menu Options => Preferences
 <h4 align="middle">Figura 07 - Configuração PC - Endereço IP</h4>
 
 <p align="justify">A configuração de um Router da CISCO é completamente diferente de qualquer sistema operacional de computadores pessoais ou roteadores domésticos, ele possui um Sistema Operacional própio chamado Internetwork Operating System (IOS) presente também em Switchs da cisco, o importante de suas configurações é enteder a localização quanto aos prompts. Outro as pectos a se considerar é que a administração deste sistema operacional é realizada utilizando linhas de comandos através da Command Lina Interface-CLI, a tabela abaixo apresenta os principais prompts utilizados no IOS:</p>
-<p align="center"><img src="images/roteamento/tabela-prompt.png"  width="950" height="277" align="middle"/></p>
+<p align="center"><img src="images/roteamento/tabela-prompt-v2.png"  width="900" height="261" align="middle"/></p>
 
 
 
