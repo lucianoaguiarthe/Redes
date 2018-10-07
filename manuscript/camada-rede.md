@@ -73,9 +73,22 @@ Menu Options => Preferences
 <h3 align="middle">Configuração do Ambiente de Rede</h3>
 <p align="justify">Seguiremos uma dinâmica no laboratório de configuração por dispositivo, acessa o dispositivo realiza todas as configurações inclusive de roteamento, se for o caso, e passa a fazer a configuração do seguinte, lembrado que o diagrama e endereçamento é o igual o apresentado na Figura 02.</p>
 
-<p align="justify">O ambiente de rede apresentado não possui nenhuma configuração, somente foi acrescenta um módulo para disponibilizar uma comunicação serial entre os roteadores, acessem o <b>PC0</b> dando dois cliques em cima de uma imagem, onde será apresentado a imagem conforme Figura 05, com suas guias de configuração.</p>
+<p align="justify">O ambiente de rede apresentado não possui nenhuma configuração, somente foi acrescentado um módulo para disponibilizar uma comunicação serial entre os roteadores, acessem o <b>PC0</b> dando dois cliques em cima de uma imagem, onde será apresentado a imagem conforme Figura 05, com suas guias de configuração.</p>
 <p align="center"><img src="images/roteamento/05-config-pc.png"  width="600" height="526" align="middle"/></p>
 <h4 align="middle">Figura 05 - Configuração PC</h4>
+
+<p align="justify">Acesse a guia <b>config</b> no menu <b>Settings</b> e atribuia o endereço do Gateway do PC0 que é a interface Gigabitethernet 0/0 com IP 192.168.0.1, Figura 06:</p>
+<p align="center"><img src="images/roteamento/06-pc-gateway.png"  width="600" height="526" align="middle"/></p>
+<h4 align="middle">Figura 06 - Configuração PC - Gateway</h4>
+
+<p align="justify">No menu Interface => FastEthernet0 atribua o endereço conforme diagrama de redes, Figura 07: </p>
+<p align="center"><img src="images/roteamento/07-pc0-endereco.png"  width="600" height="526" align="middle"/></p>
+<h4 align="middle">Figura 07 - Configuração PC - Endereço IP</h4>
+
+<p align="justify">A configuração de um Router da CISCO é completamente diferente de qualquer sistema operacional de computadores pessoais ou roteadores domésticos, ele possui um Sistema Operacional própio chamado Internetwork Operating System (IOS) presente também em Switchs da cisco, o importante de suas configurações é enteder a localização quanto aos prompts. Outro as pectos a se considerar é que a administração deste sistema operacional é realizada utilizando linhas de comandos através da Command Lina Interface-CLI, a tabela abaixo apresenta os principais prompts utilizados no IOS:</p>
+<p align="center"><img src="images/roteamento/tabela-prompt.png"  width="950" height="277" align="middle"/></p>
+
+
 
 <p></P>
 Router>enableRouter#configure terminalEnter configuration commands, one per line.  End with CNTL/Z.Router(config)#interface gigabitethernet 0/0Router(config-if)#ip address 192.168.0.1 255.255.255.0Router(config-if)#no shutdownRouter(config-if)#%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to upRouter(config-if)#exitRouter(config)#interface serial 0/3/0Router(config-if)#ip address 192.168.10.1 255.255.255.0Router(config-if)#no shutdown%LINK-5-CHANGED: Interface Serial0/3/0, changed state to downRouter(config-if)#exitRouter(config)#router ripRouter(config-router)#network 192.168.0.1Router(config-router)#network 192.168.10.1Router(config-router)#passive-interface giGabitethernet 0/0Router(config-router)#endRouter#%SYS-5-CONFIG_I: Configured from console by consoleRouter#copy run startDestination filename [startup-config]? Building configuration...[OK]
