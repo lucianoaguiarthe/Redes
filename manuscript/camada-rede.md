@@ -38,7 +38,7 @@
 * <b>Interfaces</b> -  Conectam o roteador à rede para entrada e saída de pacotes, podem estar diretamenta conectadas na placa-mãe ou adicinadas através de módulos, em computadores pessoas são chamadas de placas de rede;<p>
 
 <p align="center" ><img src="images/roteamento/aviso-importante.png"  width="300" height="130" align="middle"/></p>
-<p align="justify" style="color:red">Todas as configurações realizadas em um roteador são salvas na RAM, portanto é um dado volátil, ocorrendo o desligamento inesperado a configuração feita é <b>PERDIDA</b>, daí a necessidade de salvar constante o que foi realizado na NVRAM através do comando: <i>copy running-config startup-config</i>.</p>
+<p align="justify">Todas as configurações realizadas em um roteador são salvas na RAM, portanto é um dado volátil, ocorrendo o desligamento inesperado a configuração feita é <b>PERDIDA</b>, daí a necessidade de salvar constante o que foi realizado na NVRAM através do comando: <i>copy running-config startup-config</i>.</p>
 
 <h3 align="middle">Preparando o Ambiente para Realizar o Laboratório</h3>
 
@@ -88,18 +88,20 @@ Menu Options => Preferences
 <p align="justify">A configuração de um Router da CISCO é completamente diferente de qualquer sistema operacional de computadores pessoais ou roteadores domésticos, ele possui um Sistema Operacional própio chamado Internetwork Operating System (IOS) presente também em Switchs da cisco, o importante de suas configurações é enteder a localização quanto aos prompts. Outro as pectos a se considerar é que a administração deste sistema operacional é realizada utilizando linhas de comandos através da Command Lina Interface-CLI, a tabela abaixo apresenta os principais prompts utilizados no IOS:</p>
 <p align="center"><img src="images/roteamento/tabela-prompt-v2.png"  width="900" height="261" align="middle"/></p>
 
+<p align="center" ><img src="images/roteamento/aviso-importante.png"  width="300" height="130" align="middle"/></p>
 
+<p align="justify">Para configurar o <b>Router1</b> clique duas vezes em cima de sua imagem</p>
+<p align="justify">Por questões de padronização deixei o texto referente ao Prompt do IOS em negrito, caracterizando que não deve ser digitado na CLI</p>
 
-
-<p align="justify"><font color="red">Router></font>  enable</p><p align="justify"><font color="red">Router#</font> configure terminal</p><p align="justify"><font color="red">Router(config)#</font> interface gigabitethernet 0/0</p>
-<p align="justify"><font color="red">Router(config-if)#</font> ip address 192.168.0.1 255.255.255.0</p><p align="justify"><font color="red">Router(config-if)#</font> no shutdown</p><p align="justify"><font color="red">Router(config-if)#</font> exit</p>
-<p align="justify"><font color="red">Router(config)#</font> interface serial 0/3/0</p>
-<p align="justify"><font color="red">Router(config-if)#</font> ip address 192.168.10.1 255.255.255.0</p>
-<p align="justify"><font color="red">Router(config-if)#</font> no shutdown</p><p align="justify"><font color="red">Router(config-if)#</font> exit</p>
-<p align="justify"><font color="red">Router(config)#</font> router rip</p>
-<p align="justify"><font color="red">Router(config-router)#</font> network 192.168.0.1</p><p align="justify"><font color="red">Router(config-router)#</font> network 192.168.10.1</p>
-<p align="justify"><font color="red">Router(config-router)#</font> passive-interface giGabitethernet 0/0</p>
-<p align="justify"><font color="red">Router(config-router)#</font>  end</p>
-<p align="justify"><font color="red">Router#</font> copy running-config startup-config</p>
-Destination filename [startup-config]? Building configuration...[OK]
+<p align="justify"><b>Router></b>  enable</p><p align="justify"><b>Router#</b> configure terminal</p><p align="justify"><b>Router(config)#</b> interface gigabitethernet 0/0</p>
+<p align="justify"><b>Router(config-if)#</b> ip address 192.168.0.1 255.255.255.0</p><p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify"><b>Router(config-if)#</b> exit</p>
+<p align="justify"><b>Router(config)#</b> interface serial 0/3/0</p>
+<p align="justify"><b>Router(config-if)#</b> ip address 192.168.10.1 255.255.255.0</p>
+<p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify"><b>Router(config-if)#</b> exit</p>
+<p align="justify"><b>Router(config)#</b> router rip</p>
+<p align="justify"><b>Router(config-router)#</b> network 192.168.0.1</p><p align="justify"><b>Router(config-router)#</b> network 192.168.10.1</p>
+<p align="justify"><b>Router(config-router)#</b> passive-interface giGabitethernet 0/0</p>
+<p align="justify"><b>Router(config-router)#</b>  end</p>
+<p align="justify"><b>Router#</b> copy running-config startup-config</p>
+Destination filename [startup-config]?<p> Building configuration...[OK]
 
