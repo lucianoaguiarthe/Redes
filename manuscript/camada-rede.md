@@ -88,20 +88,47 @@ Menu Options => Preferences
 <p align="justify">A configuração de um Router da CISCO é completamente diferente de qualquer sistema operacional de computadores pessoais ou roteadores domésticos, ele possui um Sistema Operacional própio chamado Internetwork Operating System (IOS) presente também em Switchs da cisco, o importante de suas configurações é enteder a localização quanto aos prompts. Outro as pectos a se considerar é que a administração deste sistema operacional é realizada utilizando linhas de comandos através da Command Lina Interface-CLI, a tabela abaixo apresenta os principais prompts utilizados no IOS:</p>
 <p align="center"><img src="images/roteamento/tabela-prompt-v2.png"  width="900" height="261" align="middle"/></p>
 
-<p align="center" ><img src="images/roteamento/aviso-importante.png"  width="300" height="130" align="middle"/></p>
 
-<p align="justify">Para configurar o <b>Router1</b> clique duas vezes em cima de sua imagem</p>
+
+<p align="justify">Para configurar o <b>Router1</b> clique duas vezes em cima de sua imagem, será aberto uma tela com as guias de configurações físicas, lógicas e CLI, Figura 8:</p>
+
+<p align="center"><img src="images/roteamento/08-config-router.png"  width="600" height="526" align="middle"/></p>
+<h4 align="middle">Figura 08 - Configuração Router</h4>
+
+<p align="justify">Toda a administração do roteador será feita na guia <b>CLI</b>, no qual será disponibilizado o prompt de administração, Figura 9, o <b>CLI</b> estará bloqueado para ter acesso digite <b>enter</b>, onde será liberado o <b>prompt modo usuário</b> (>).</p>
+
+<p align="center"><img src="images/roteamento/09-config-router-cli.png"  width="600" height="526" align="middle"/></p>
+<h4 align="middle">Figura 09 - Configuração Router - CLI</h4>
+
+<p align="center" ><img src="images/roteamento/aviso-importante.png"  width="300" height="130" align="middle"/></p>
 <p align="justify">Por questões de padronização deixei o texto referente ao Prompt do IOS em negrito, caracterizando que não deve ser digitado na CLI</p>
 
-<p align="justify"><b>Router></b>  enable</p><p align="justify"><b>Router#</b> configure terminal</p><p align="justify"><b>Router(config)#</b> interface gigabitethernet 0/0</p>
-<p align="justify"><b>Router(config-if)#</b> ip address 192.168.0.1 255.255.255.0</p><p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify"><b>Router(config-if)#</b> exit</p>
-<p align="justify"><b>Router(config)#</b> interface serial 0/3/0</p>
-<p align="justify"><b>Router(config-if)#</b> ip address 192.168.10.1 255.255.255.0</p>
-<p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify"><b>Router(config-if)#</b> exit</p>
-<p align="justify"><b>Router(config)#</b> router rip</p>
-<p align="justify"><b>Router(config-router)#</b> network 192.168.0.1</p><p align="justify"><b>Router(config-router)#</b> network 192.168.10.1</p>
-<p align="justify"><b>Router(config-router)#</b> passive-interface giGabitethernet 0/0</p>
-<p align="justify"><b>Router(config-router)#</b>  end</p>
-<p align="justify"><b>Router#</b> copy running-config startup-config</p>
-Destination filename [startup-config]?<p> Building configuration...[OK]
-
+<p align="justify" >Ao acessar a <b>CLI</b> pela primeira vez o prompt liberado é o <b>modo usuário</b>, todavia neste prompt só podemos realizar consultas, para administrar e configurar o router, deve-se acessar o prompt <b>modo priviletiado</b> digitando o comando: enable</p>
+<p align="justify"><b>Router></b>  enable</p><p align="justify">Para realizar configuração no router devemos acessar o prompt no <b>Modo de Configuração Global</b> digitando: configure terminal ou conf t</p><p align="justify"><b>Router#</b> configure terminal</p><p align="justify">Para atribuir o endereço ip a uma interface deve-se acessar seu prompt de acordo a porta da interface conforme apresentado, em nosso laboratório iremos acessar a interface GibabitEthernet 0/0 que conecta o Router1 ao PC0</p><p align="justify"><b>Router(config)#</b> interface gigabitethernet 0/0</p>
+
+<p align="justify">Deve-se atribuir o endereço conforme apresentado</p><p align="justify"><b>Router(config-if)#</b> ip address 192.168.0.1 255.255.255.0</p>
+<p align="justify"><b>Obs.: </b>Caso digite qualquer comando errado, como o endereço da interface, por exemplo: ip address 192.168.0.10 255.255.255.0, basta repetir o comando com a palavra <b>no</b> no começo: <b>no</b> ip address 192.168.0.10 255.255.255.0, e digitar o comando correto.
+
+<p align="justify">Toda interface por padrão vem desligada, após atribuir o endereçamento deve-se digitar o comando: no shutdown ou no shut</p><p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify">Saia do prompt da interface com o comando: exit</p><p align="justify"><b>Router(config-if)#</b> exit</p>
+
+<p align="justify">Acesse o prompt da interface serial 0/3/0</p><p align="justify"><b>Router(config)#</b> interface serial 0/3/0</p>
+
+<p align="justify">Atribua o IP conforme especificado na Figura 2</p><p align="justify"><b>Router(config-if)#</b> ip address 192.168.10.1 255.255.255.0</p>
+
+<p align="justify">Ative a interface</p><p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify">Saia do Prompt</p><p align="justify"><b>Router(config-if)#</b> exit</p>
+
+<p align="justify">Neste ponto será configurado o protocolo de Roteamento RIP, que é um protocolo dinâmico que constroi sua tabela de roteamento baseada no estado do enlace, para acessar o prompt de roteamento digite o comando: router rip</p><p align="justify"><b>Router(config)#</b> router rip</p>
+
+<p align="justify">Deve-se informar todas as redes que estão diretamente conectada no roteador, eles possam anunciá-las</p><p align="justify"><b>Router(config-router)#</b> network 192.168.0.1</p><p align="justify"><b>Router(config-router)#</b> network 192.168.10.1</p>
+
+<p align="justify">Para reduzir a quantidade de anúncios de rede e atividades de processamento do router, deve-se informar quais são as <b>interfaces passivas</b> que não necessitaram anunciar redes, geralmente são interfaces que não estão conectadas a roteadores, como a GigaBitEthernet 0/0.</p><p align="justify"><b>Router(config-router)#</b> passive-interface giGabitethernet 0/0</p>
+
+<p align="justify"><b>Obs.: </b>Caso faça algum parâmetro errado no prompt de roteamento, basta apagar toda a configuração de roteamento digitando no prompt de configuracão global: no router rip</p>
+
+<p align="justify">Saia do prompt de roteamento</p><p align="justify"><b>Router(config-router)#</b>  end</p>
+<p align="justify">Todas as configurações realizadas anteriormentes estão sendo salvas de maneira automática no arquivo <b>running-config</b> na RAM, em caso de desligamento inesperado tudo o que foi digitado seria perdido, para que a configuração seja salva copie o arquivo running-config para o arquivo <b>startup-config</b> na NVRAM.</p><p align="justify"><b>Router#</b> copy running-config startup-config</p>
+
+<p align="justify">É pedido uma confirmação da cópia, basta digitar enter</p>Destination filename [startup-config]?<p> Building configuration...[OK]<p>
+
+### CONFIGURAÇÃO ROUTER2
+<p align="justify">A configuração do Router2 é similitar ao Router1, a única diferença são os parâmetros de configuração, portanto não irei repetir as explicações, somente repassar o comando, com excessão quando irei usar o <b>clock rate</b></p> 
