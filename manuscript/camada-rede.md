@@ -119,7 +119,7 @@ Menu Options => Preferences
 
 <p align="justify">Neste ponto será configurado o protocolo de Roteamento RIP, que é um protocolo dinâmico que constroi sua tabela de roteamento baseada no estado do enlace, para acessar o prompt de roteamento digite o comando: router rip</p><p align="justify"><b>Router(config)#</b> router rip</p>
 
-<p align="justify">Deve-se informar todas as redes que estão diretamente conectada no roteador, eles possam anunciá-las</p><p align="justify"><b>Router(config-router)#</b> network 192.168.0.1</p><p align="justify"><b>Router(config-router)#</b> network 192.168.10.1</p>
+<p align="justify">Deve-se informar todas as redes que estão diretamente conectada no roteador, eles possam anunciá-las</p><p align="justify"><b>Router(config-router)#</b> network 192.168.0.0</p><p align="justify"><b>Router(config-router)#</b> network 192.168.10.0</p>
 
 <p align="justify">Para reduzir a quantidade de anúncios de rede e atividades de processamento do router, deve-se informar quais são as <b>interfaces passivas</b> que não necessitaram anunciar redes, geralmente são interfaces que não estão conectadas a roteadores, como a GigaBitEthernet 0/0.</p><p align="justify"><b>Router(config-router)#</b> passive-interface giGabitethernet 0/0</p>
 
@@ -132,3 +132,42 @@ Menu Options => Preferences
 
 ### CONFIGURAÇÃO ROUTER2
 <p align="justify">A configuração do Router2 é similitar ao Router1, a única diferença são os parâmetros de configuração, portanto não irei repetir as explicações, somente repassar o comando, com excessão quando irei usar o <b>clock rate</b></p> 
+
+
+<p align="justify"><b>Router></b>  enable</p><p align="justify"><b>Router#</b> configure terminal</p><p align="justify"><b>Router(config)#</b> interface serial 0/3/0</p>
+
+<p align="justify"><b>Router(config-if)#</b> ip address 192.168.10.2 255.255.255.0</p>
+
+<p align="justify"><b>Router(config-if)#</b> clock rate 56000</p>
+<p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify"><b>Router(config-if)#</b> exit</p>
+
+<p align="justify"><b>Router(config)#</b> interface GigabitEthernet 0/0</p>
+
+<p align="justify"><b>Router(config-if)#</b> ip address 192.168.20.1 255.255.255.0</p>
+
+<p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify"><b>Router(config-if)#</b> exit</p>
+
+<p align="justify"><b>Router(config)#</b> router rip</p>
+
+<p align="justify"><b>Router(config-router)#</b> network 192.168.10.0</p><p align="justify"><b>Router(config-router)#</b> network 192.168.20.0</p>
+
+<p align="justify"><b>Router(config-router)#</b> passive-interface GigabitEthernet 0/0</p>
+
+<p align="justify"><b>Router(config-router)#</b>  end</p>
+<p align="justify"><b>Router#</b> copy running-config startup-config</p>
+
+Destination filename [startup-config]?<p> Building configuration...[OK]<p>
+
+### CONFIGURAÇÃO PC1
+
+<p align="justify">A configuração do PC1 é similar ao PC0, necessitando somente usar o gateway conforme o diagrama de rede <b>192.168.20.1</b> e o endereço ip do computador <b>192.168.20.10</b>.
+
+<h3 align="middle">Analisando se a Configuração está Correta</h3>
+
+<p align="justify">Para verificar se a configuração está correta acesse novamente o PC0 dando dois cliques na imagem, será aberto a caixa de configuração, Figura 05, selecione a guia <b>Desktop</b> e <b>Prompt de Comando</b> dentro do terminal aberto digite o comando: ping 192.168.20.10, se a configuração estiver correta não ocorrerá perca de nenhum pacote</p>
+
+<p align="justify">A analise dos resultados de toda a configuração é feita </p>
+
+<p align="center"><img src="images/roteamento/10-checkresults.png"  width="521" height="316" align="middle"/></p>
+<h4 align="middle">Figura 10 - Check Results</h4>
+
