@@ -166,8 +166,15 @@ Menu Options => Preferences
 
 <p align="justify">Para verificar se a configuração está correta acesse novamente o PC0 dando dois cliques na imagem, será aberto a caixa de configuração, Figura 05, selecione a guia <b>Desktop</b> e <b>Prompt de Comando</b> dentro do terminal aberto digite o comando: ping 192.168.20.10, se a configuração estiver correta não ocorrerá perca de nenhum pacote</p>
 
-<p align="justify">A analise dos resultados de toda a configuração é feita </p>
+<p align="justify">A analise dos resultados de toda a configuração é feita clicando no botão <b>Check Results</b>, Figura 10</p>
 
 <p align="center"><img src="images/roteamento/10-checkresults.png"  width="521" height="316" align="middle"/></p>
 <h4 align="middle">Figura 10 - Check Results</h4>
 
+<p align="justify">No qual será aberto uma caixa de diálogo com três guias de relatórios: Feedback Geral, Itens Corretos e Teste de Conectividades, conforme imagens abaixo:</p>
+
+<p align="center"><img src="images/roteamento/feedback-geral.png"  width="700" height="340" align="middle"/></p>
+
+<p align="center"><img src="images/roteamento/itens-corretos.png"  width="700" height="540" align="middle"/></p>
+
+<p align="center"><img src="images/roteamento/teste-conectividade.png"  width="700" height="196" align="middle"/></p>
