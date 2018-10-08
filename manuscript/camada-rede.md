@@ -1,30 +1,31 @@
 # <p align="middle"> LABORATÓRIO CAMADA DE REDES</p>
 
-<h2 align="middle">Introdução</h2>
+<h2 align="left">1 - Introdução</h2>
 <p align="justify">A Camada de Rede foca na interconexão de enlaces e redes distintas, e para resolver este problemas, são necessários dois personagens: Os protocolos de roteamento e os dispositivos de interconexão de enlaces (switchs ou roteadores)</p>
 
-<h2 align="middle">Sistemas Autônomos</h2>
+<h2 align="left">2 - Sistemas Autônomos</h2>
 <p align="justify">Sistemas Autônomos (SA) são agrupamentos de roteadores administrados por um roteador central, geralmente o que está executando o protocolo BGP, conforme Figura 01, podemos observar um grupo de 3 (três) Sistemas Autônomos.</p>
 <p align="justify">A Estrutura da Internet feita em Sistemas Autônomos dimimuita a quantidade de tabelas de roteamento replicadas, considerando que as informações inerentes as rotas interna a um SA reservam-se aos seus roteadores de borda.</P>
 <p align="center"><img src="images/roteamento/01-as.png"  width="750" height="375" align="middle"/></p>
 <h4 align="middle">Figura 01 - Sistemas Autônomos</h4>
-<h2 align="middle">Roteamento Estático</h2>
+<h2 align="left">3 - Roteamento Estático</h2>
 <p align="justify">O roteamento dinâmico interconecta redes distintas, todavia, sua configuração é realizada pelo administrador do ambiente, devendo criar as rotas necessárias em cada roteador da rede, caso ocorra alguma queda do enlace os pacotes continuaram sendo encaminhados para o enlace descontinuada, somente depois da intervenção do administrador criando uma nova rota é que o problema será solucionado.</p>
 
-<h2 align="middle">Roteamento Dinâmico</h2>
+<h2 align="left">4 - Roteamento Dinâmico</h2>
 <p align="justify">O Roteamento Dinâmico as tabelas são criadas automáticamente pelo algoritmo de roteamento, sem intervenção do administrador do ambiente, devendo a este informar somente qual protocolo de roteamento deve-se utilizar. Os protocolos de roteamento dinâmicos utilizados na camada de rede são:</p>
-*  <b>RIP</b> – Utilizada como característica para escolha da rota o caminho mais curto, baseado na quantidade de saltos, é um protocolo interno ao Sistema Autônomo;<p>
+
+* <b>RIP</b> – Utilizada como característica para escolha da rota o caminho mais curto, baseado na quantidade de saltos, é um protocolo interno ao Sistema Autônomo;<p>
 * <b>OSPF</b> – Tem como caracterísitca para escolha da rota o estado do enlace, que nem sempre é o caminho mais curto é um protocolo interno ao Sistema Autônomo;<p>
 * <b>BGP</b> -  Protocolo de Borda que Interconecta Sistemas Autônomos;<p>
 
-<h2 align="middle">Laboratório Roteamento Dinâmico</h2>
+<h2 align="left">5 - Laboratório Roteamento Dinâmico</h2>
 
 <p align="justify">Iremos realizar a interconexão de duas redes distintas, Figura 2, usando um protocolo de roteamento dinâmico RIP, que utiliza o algoritmo de Vetor de Distância, ou seja, o melhor caminho é o que possui a menor quantidade de saltos</b></p>
 
 <p align="center"><img src="images/roteamento/02-diagrama_rede.png"  width="600" height="391" align="middle"/></p>
 <h4 align="middle">Figura 02 - Diagrama Rede</h4>
 
-<h3 align="middle">Entendo a Arquitetura de um Roteador</h3>
+<h3 align="left">5.1 - Entendo a Arquitetura de um Roteador</h3>
 
 <p align="justify">Um roteador é um compador com função específica de interconectar redes, seu hardware funciona de uma maneira um pouco difererente de um computador pessoal, um dos principais fabricantes do mercado é a CISCO, no qual nosso laboratório estará orientado, a Figura 03, apresenta a arquitetura dos componentes principais de um roteador. </p>
 <p align="center"><img src="images/roteamento/03-roteador.png"  width="400" height="240" align="middle"/></p>
@@ -40,7 +41,7 @@
 <p align="center" ><img src="images/roteamento/aviso-importante.png"  width="300" height="130" align="middle"/></p>
 <p align="justify">Todas as configurações realizadas em um roteador são salvas na RAM, portanto é um dado volátil, ocorrendo o desligamento inesperado a configuração feita é <b>PERDIDA</b>, daí a necessidade de salvar constante o que foi realizado na NVRAM através do comando: <i>copy running-config startup-config</i>.</p>
 
-<h3 align="middle">Preparando o Ambiente para Realizar o Laboratório</h3>
+<h3 align="left">5.2 - Preparando o Ambiente para Realizar o Laboratório</h3>
 
 <p align="justify">Iremos utilizar um software de simualação de rede desenvolvido e disponibilizado pela própria CISCO, chamado Packet Tracer, ele pode ser executado até mesmo em computadores antigos de 32 bits, para fazer o download cadastre-se no curso:</p>
 
@@ -61,7 +62,7 @@
 
 Menu Options => Preferences
  
-<h3 align="middle">Execução do Laboratório</h3>
+<h3 align="left">5.3 - Execução do Laboratório</h3>
 <p align="justify">Ao abrir o arquivo baixado no link acima, o Packet Tracer será aberto com duas telas, uma com o wizard que apresentará seus acerto no final e a outra com o diagrama de rede no qual você irá configurar, Figura4. </p>
 <p align="center"><img src="images/roteamento/04-lab-packettracer.png"  width="900" height="448" align="middle"/></p>
 <h4 align="middle">Figura 04 - Laboratório Packet Tracer</h4>
@@ -70,7 +71,7 @@ Menu Options => Preferences
 *  Congigurar o endereçamento IP em todos os dispositivos do ambiente;<p>
 * Configurar o Roteamento Dinâmico RIP no <b>Router1</b> e <b>Router2</b> para que o <b>PC0</b> possa se comunicar com o <b>PC1</b>;<p>
 
-<h3 align="middle">Configuração do Ambiente de Rede</h3>
+<h3 align="left">5.4 - Configuração do PC0</h3>
 <p align="justify">Seguiremos uma dinâmica no laboratório de configuração por dispositivo, acessa o dispositivo realiza todas as configurações inclusive de roteamento, se for o caso, e passa a fazer a configuração do seguinte, lembrado que o diagrama e endereçamento é o igual o apresentado na Figura 02.</p>
 
 <p align="justify">O ambiente de rede apresentado não possui nenhuma configuração, somente foi acrescentado um módulo para disponibilizar uma comunicação serial entre os roteadores, acessem o <b>PC0</b> dando dois cliques em cima de uma imagem, onde será apresentado a imagem conforme Figura 05, com suas guias de configuração.</p>
@@ -85,9 +86,9 @@ Menu Options => Preferences
 <p align="center"><img src="images/roteamento/07-pc0-endereco.png"  width="600" height="526" align="middle"/></p>
 <h4 align="middle">Figura 07 - Configuração PC - Endereço IP</h4>
 
+<h3 align="left">5.5 - Configuração do Router1</h3>
 <p align="justify">A configuração de um Router da CISCO é completamente diferente de qualquer sistema operacional de computadores pessoais ou roteadores domésticos, ele possui um Sistema Operacional própio chamado Internetwork Operating System (IOS) presente também em Switchs da cisco, o importante de suas configurações é enteder a localização quanto aos prompts. Outro as pectos a se considerar é que a administração deste sistema operacional é realizada utilizando linhas de comandos através da Command Lina Interface-CLI, a tabela abaixo apresenta os principais prompts utilizados no IOS:</p>
 <p align="center"><img src="images/roteamento/tabela-prompt-v2.png"  width="900" height="261" align="middle"/></p>
-
 
 
 <p align="justify">Para configurar o <b>Router1</b> clique duas vezes em cima de sua imagem, será aberto uma tela com as guias de configurações físicas, lógicas e CLI, Figura 8:</p>
@@ -130,14 +131,14 @@ Menu Options => Preferences
 
 <p align="justify">É pedido uma confirmação da cópia, basta digitar enter</p>Destination filename [startup-config]?<p> Building configuration...[OK]<p>
 
-### CONFIGURAÇÃO ROUTER2
+<h3 align="left">5.6 - Configuração do Router1</h3>
 <p align="justify">A configuração do Router2 é similitar ao Router1, a única diferença são os parâmetros de configuração, portanto não irei repetir as explicações, somente repassar o comando, com excessão quando irei usar o <b>clock rate</b></p> 
 
 
 <p align="justify"><b>Router></b>  enable</p><p align="justify"><b>Router#</b> configure terminal</p><p align="justify"><b>Router(config)#</b> interface serial 0/3/0</p>
 
 <p align="justify"><b>Router(config-if)#</b> ip address 192.168.10.2 255.255.255.0</p>
-
+<p align="justify">O <b>clock rate</b> define a taxa de bits transmitida na interface serial que opera no modo de Equipamento de Comunicação de Dados-DCE, caso este parâmetro não seja configurado não ocorrerá comunicação entre os roteadores.</p>
 <p align="justify"><b>Router(config-if)#</b> clock rate 56000</p>
 <p align="justify"><b>Router(config-if)#</b> no shutdown</p><p align="justify"><b>Router(config-if)#</b> exit</p>
 
@@ -158,11 +159,11 @@ Menu Options => Preferences
 
 Destination filename [startup-config]?<p> Building configuration...[OK]<p>
 
-### CONFIGURAÇÃO PC1
+<h3 align="left">5.7 - Configuração do PC1</h3>
 
 <p align="justify">A configuração do PC1 é similar ao PC0, necessitando somente usar o gateway conforme o diagrama de rede <b>192.168.20.1</b> e o endereço ip do computador <b>192.168.20.10</b>.
 
-<h3 align="middle">Analisando se a Configuração está Correta</h3>
+<h3 align="left">5.8 - Analisando se a Configuração está Correta</h3>
 
 <p align="justify">Para verificar se a configuração está correta acesse novamente o PC0 dando dois cliques na imagem, será aberto a caixa de configuração, Figura 05, selecione a guia <b>Desktop</b> e <b>Prompt de Comando</b> dentro do terminal aberto digite o comando: ping 192.168.20.10, se a configuração estiver correta não ocorrerá perca de nenhum pacote</p>
 
@@ -178,3 +179,12 @@ Menu Options => Preferences
 <p align="center"><img src="images/roteamento/itens-corretos.png"  width="700" height="540" align="middle"/></p>
 
 <p align="center"><img src="images/roteamento/teste-conectividade.png"  width="700" height="196" align="middle"/></p>
+
+<h3 align="left">5.9 - Comandos Importantes</h3>
+
+<p align="justify">Alguns comandos importantes serão apresentados a seguir, todos eles devem ser executados no prompt privilegiado:</p>
+
+*  <b>show running-config</b> – Apresenta o arquivo de configuração do router que está executando na RAM;<p>
+* <b>show startup-config</b> – Apresenta o arquivo de configuração que está salvo na NVRAM e que será carregado na inicialização do router;<p>
+* <b>show ip route</b> - Exibe as todas as tabelas de roteamentos montatas pelo router;
+
