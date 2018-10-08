@@ -90,6 +90,16 @@ Menu Options => Preferences
 
 
 
-<p></P>
-Router>enableRouter#configure terminalEnter configuration commands, one per line.  End with CNTL/Z.Router(config)#interface gigabitethernet 0/0Router(config-if)#ip address 192.168.0.1 255.255.255.0Router(config-if)#no shutdownRouter(config-if)#%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to upRouter(config-if)#exitRouter(config)#interface serial 0/3/0Router(config-if)#ip address 192.168.10.1 255.255.255.0Router(config-if)#no shutdown%LINK-5-CHANGED: Interface Serial0/3/0, changed state to downRouter(config-if)#exitRouter(config)#router ripRouter(config-router)#network 192.168.0.1Router(config-router)#network 192.168.10.1Router(config-router)#passive-interface giGabitethernet 0/0Router(config-router)#endRouter#%SYS-5-CONFIG_I: Configured from console by consoleRouter#copy run startDestination filename [startup-config]? Building configuration...[OK]
+
+<p align="justify"><font color="red">Router></font>  enable</p><p align="justify"><font color="red">Router#</font> configure terminal</p><p align="justify"><font color="red">Router(config)#</font> interface gigabitethernet 0/0</p>
+<p align="justify"><font color="red">Router(config-if)#</font> ip address 192.168.0.1 255.255.255.0</p><p align="justify"><font color="red">Router(config-if)#</font> no shutdown</p><p align="justify"><font color="red">Router(config-if)#</font> exit</p>
+<p align="justify"><font color="red">Router(config)#</font> interface serial 0/3/0</p>
+<p align="justify"><font color="red">Router(config-if)#</font> ip address 192.168.10.1 255.255.255.0</p>
+<p align="justify"><font color="red">Router(config-if)#</font> no shutdown</p><p align="justify"><font color="red">Router(config-if)#</font> exit</p>
+<p align="justify"><font color="red">Router(config)#</font> router rip</p>
+<p align="justify"><font color="red">Router(config-router)#</font> network 192.168.0.1</p><p align="justify"><font color="red">Router(config-router)#</font> network 192.168.10.1</p>
+<p align="justify"><font color="red">Router(config-router)#</font> passive-interface giGabitethernet 0/0</p>
+<p align="justify"><font color="red">Router(config-router)#</font>  end</p>
+<p align="justify"><font color="red">Router#</font> copy running-config startup-config</p>
+Destination filename [startup-config]? Building configuration...[OK]
 
