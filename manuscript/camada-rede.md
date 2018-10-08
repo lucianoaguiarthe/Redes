@@ -163,6 +163,7 @@ Menu Options => Preferences
 
 <p align="justify">A configuração do PC1 é similar ao PC0, necessitando somente usar o gateway conforme o diagrama de rede <b>192.168.20.1</b> e o endereço ip do computador <b>192.168.20.10</b>.
 
+<p align="justify"><b>Obs.:</b> Em caso de dúvida volte no tópico 5.4, para ver como acessar a área de configuração do PC</p>
 <h3 align="left">5.8 - Analisando se a Configuração está Correta</h3>
 
 <p align="justify">Para verificar se a configuração está correta acesse novamente o PC0 dando dois cliques na imagem, será aberto a caixa de configuração, Figura 05, selecione a guia <b>Desktop</b> e <b>Prompt de Comando</b> dentro do terminal aberto digite o comando: ping 192.168.20.10, se a configuração estiver correta não ocorrerá perca de nenhum pacote</p>
