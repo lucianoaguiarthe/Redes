@@ -27,7 +27,7 @@
 <h3 align="middle">Entendo a Arquitetura de um Roteador</h3>
 
 <p align="justify">Um roteador é um compador com função específica de interconectar redes, seu hardware funciona de uma maneira um pouco difererente de um computador pessoal, um dos principais fabricantes do mercado é a CISCO, no qual nosso laboratório estará orientado, a Figura 03, apresenta a arquitetura dos componentes principais de um roteador. </p>
-<p align="center"><img src="images/roteamento/03-roteador.png"  width="500" height="300" align="middle"/></p>
+<p align="center"><img src="images/roteamento/03-roteador.png"  width="400" height="240" align="middle"/></p>
 <h4 align="middle">Figura 03 - Componentes Roteador</h4>
 
 *  <b>RAM</b> – Armazena as tabelas de roteamento e o arquivo de configuração temporário do roteador;<p>
